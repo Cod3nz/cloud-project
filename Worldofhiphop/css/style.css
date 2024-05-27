@@ -1,0 +1,965 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+:root {
+  --primary-color: rebeccapurple;
+  --bg-color: #333;
+  --input-border: #ccc;
+}
+
+/**************************************************BASIC STYLING*/
+
+body {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "nav    nav    nav"
+    "main   main   main"
+    "footer footer footer";
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(255, 255, 255);
+  overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Ubuntu", sans-serif;
+}
+
+h1,
+h2 {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+button {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background-color: white;
+  color: var(--bg-color);
+  border: 2px var(--bg-color) solid;
+  border-radius: 20px;
+}
+
+button:hover {
+  background-color: var(--primary-color);
+  color: white;
+  border: white 2px solid;
+  cursor: pointer;
+}
+
+figcaption {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  font-size: 0.6rem;
+  color: #eee;
+  text-align: left;
+  margin-left: 1rem;
+}
+
+/**************************************************NAV*/
+
+header {
+  grid-area: header;
+  background-color: var(--bg-color);
+  color: white;
+  text-align: center;
+  padding: 3rem;
+}
+
+header h2 {
+  color: white;
+  font-size: 3rem;
+}
+
+nav {
+  position: relative;
+  grid-area: nav;
+}
+
+nav > ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  background-color: var(--bg-color);
+}
+
+nav > ul > li {
+  position: relative;
+  font-size: 1.3rem;
+  padding: 0.5rem;
+  padding-bottom: 1rem;
+  margin: 0 2rem;
+  z-index: 500;
+}
+
+nav > ul > li > a {
+  position: relative;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  padding-bottom: 0.5rem;
+}
+
+nav ul.dropdown {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+  left: 0;
+  top: 99%;
+  min-width: 250px;
+  opacity: 0;
+  text-align: left;
+  padding: 1rem;
+  background: var(--bg-color);
+  color: white;
+  box-shadow: 0px 3px 5px -1px #ccc;
+}
+
+nav ul.dropdown li {
+  padding: 0.5rem;
+}
+
+nav ul li:hover > ul.dropdown,
+ul li ul.dropdown:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+  z-index: +1;
+}
+
+.searchbar{
+  color: white;
+}
+
+#searchInput {
+  color: white;
+  border: 1px solid white;
+  margin-right: 0.2rem;
+  padding: 0.3rem;
+  border-radius: 4px;
+}
+
+.menu::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  background-color: white;
+  width: 0;
+  height: 2px;
+  transition: width 200ms ease-out;
+}
+
+.menu:hover::before {
+  width: 100%;
+}
+
+.menu:active {
+  transform: scale(0.95);
+}
+
+/**************************************************MAIN*/
+
+main {
+  padding: 20px;
+  grid-area: main;
+  text-align: center;
+  max-width: 1280px;
+  margin: auto;
+}
+
+.products {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 4rem;
+}
+
+/**************************************************HOME*/
+
+/****FOUR ELEMENTS*/
+
+#welcome {
+  margin-top: 2rem;
+}
+
+.four-elements {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 5%;
+  text-align: left;
+}
+
+.four-elements span {
+  color: rebeccapurple;
+}
+
+.four-elements > section {
+  width: 50%;
+}
+
+.four-elements h2 {
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.four-elements img {
+  width: 40%;
+}
+
+.four-elements ol {
+  list-style: decimal;
+}
+
+.four-elements ol li {
+  margin-bottom: 0.75rem;
+}
+
+.four-elements ol li span {
+  font-weight: 600;
+}
+
+/****POPULAR CLASSES*/
+
+.popular-classes h2 {
+  border-top: var(--primary-color) 1px solid;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  text-shadow: rgb(165, 120, 209) 2px 2px;
+  width: 100%;
+  padding-top: 2rem;
+}
+
+/****CALL TO ACTION*/
+
+.call-to-action {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: var(--primary-color) 1px solid;
+}
+
+.call-to-action a {
+  display: inline-block;
+  padding: 1rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: var(--primary-color) solid 2px;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  color: white;
+  background-color: var(--primary-color);
+}
+
+.call-to-action a:hover {
+  background-color: transparent;
+  color: var(--primary-color);
+}
+
+.caption {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/****PERSONAL*/
+
+.personal {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+  border-top: var(--primary-color) 1px solid;
+  padding-top: 4rem;
+  text-align: left;
+}
+
+.personal img {
+  margin-right: 1rem;
+  width: 300px;
+  height: 400px;
+  border-radius: 25px;
+}
+.personal > section {
+  width: 58%;
+}
+
+.personal h2 {
+  margin-bottom: 2rem;
+}
+
+.personal p {
+  margin-bottom: 1rem;
+}
+
+/**************************************************PRODUCT INFO*/
+
+.productInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  max-width: 100%;
+}
+
+.productImg {
+  width: 48%;
+  justify-self: start;
+}
+
+.productList {
+  text-align: left;
+  padding: 0.5rem;
+  width: 48%;
+  justify-self: end;
+}
+
+.introInfo {
+  font-weight: 600;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+/**************************************************PURPLE PRODUCT*/
+
+.product {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--primary-color);
+  border-radius: 0.75rem;
+  border: 3px solid #000000;
+  width: 32%;
+  text-align: center;
+  color: white;
+  padding-bottom: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease; 
+}
+
+.product:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+}
+
+
+.product button {
+  margin-top: 3rem;
+}
+
+.product h3 {
+  margin-bottom: 0.5rem;
+  margin-top: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-shadow: black 4px 4px;
+}
+
+.product figure {
+  margin-top: 1rem;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+
+
+.product figure img {
+  height: 250px;
+}
+
+.product p {
+  padding: 0 1rem;
+  text-align: left;
+  width: 100%;
+}
+
+.details-form form {
+  text-align: left;
+  border-radius: 2%;
+}
+
+.item .heart {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 2rem;
+  color: rgb(71, 71, 71);
+  cursor: pointer;
+  transition: 0.2s transform ease-in-out;
+  z-index: 100;
+}
+
+.item .heart:active {
+  transform: scale(0.7);
+}
+
+.item .heart.red {
+  color: red;
+}
+
+/**************************************************** SHOP *******/
+
+.shopContainer {
+  width: 900px;
+  max-width: 90vw;
+  margin: auto;
+  text-align: center;
+  padding-top: 10px;
+  transition: transform 0.5s;
+}
+
+.shopHeader {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px;
+  height: 9rem;
+}
+
+.shopHeader h2{
+  position: absolute;
+  right: 37.5%;
+  top: 33%;
+}
+
+
+.shopTitle {
+  margin: 2rem 0 2rem 0;
+  padding-bottom: 2rem;
+  text-shadow: rebeccapurple 2px 2px;
+  border-bottom: 2px solid rebeccapurple;
+}
+
+#dancePageTitle {
+  padding: 2rem 0 2rem 0;
+  text-shadow: rebeccapurple 2px 2px;
+  border-bottom: 1px rebeccapurple solid;
+}
+
+#overigeTitle{
+  padding: 2rem 0 2rem 0;
+  text-shadow: rebeccapurple 2px 2px;
+  border-bottom: 1px rebeccapurple solid;
+}
+
+.shopHeader .icon-cart {
+  position: relative;
+}
+
+.shopHeader .icon-cart .itemCounter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  padding: 2px;
+  width: 30px;
+  height: 30px;
+  background-color: rebeccapurple;
+  border-radius: 50%;
+  top: 60%;
+  right: -15px;
+}
+
+.listProduct {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.item {
+  position: relative;
+  margin: 10px 0 0 10px;
+  border: rebeccapurple 2px solid;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.item:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+}
+
+
+.listProduct .item {
+  background-color: gray;
+  border-radius: 20px;
+}
+
+.listProduct .item img {
+  border-radius: 20px 20px 0 0;
+}
+
+.listProduct .item h2 {
+  font-size: large;
+  font-weight: 500;
+}
+
+.cartTab {
+  width: 400px;
+  background-color: gray;
+  color: white;
+  position: fixed;
+  inset: 0 -400px 0 auto;
+  display: grid;
+  grid-template-rows: 70px 1fr 70px;
+  transition: 0.5s;
+  z-index: 1000;
+}
+
+body.showCart .cartTab {
+  inset: 0 0 0 auto;
+}
+
+body.showCart .shopContainer {
+  transform: translateX(-250px);
+}
+
+.cartTab h1 {
+  color: rebeccapurple;
+  padding: 20px;
+  margin: 0;
+  font-weight: 300;
+}
+
+.cartTab .btns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.cartTab .btns button {
+  border: none;
+  font-weight: 500;
+}
+
+.cartTab .btns .close {
+  color: white;
+  background-color: rgb(185, 53, 1);
+}
+
+.cartTab .listCart .item img {
+  width: 100%;
+}
+
+.cartTab .listCart .item {
+  display: grid;
+  grid-template-columns: 70px 150px 50px 1fr;
+  gap: 10px;
+  text-align: center;
+  align-items: center;
+  padding-right: 5px;
+}
+
+.listCart .quantity span {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  color: #555;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.listCart .quantity span:nth-child(2) {
+  background-color: transparent;
+  color: #eee;
+}
+
+.listCart .item:nth-child(even) {
+  background-color: #eee1;
+}
+
+/**************************************************KLANTEN*/
+
+.usersTitle {
+  margin: 3rem 0 3rem 0;
+  text-shadow: rebeccapurple 2px 2px;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rebeccapurple;
+}
+
+.randomUsers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.user {
+  border: 2px solid rebeccapurple;
+  border-radius: 15px;
+  width: 20%;
+  margin: 1%; 
+  box-sizing: border-box; 
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.userImg {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: left;
+  padding: 1rem;
+  border-radius: 0 0 12px 12px;
+}
+
+/**************************************************CONTACT*/
+.contact {
+  width: 900px;
+}
+
+/** FORM */
+
+.contact-form {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.contact > h2 {
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px black solid;
+  text-shadow: rebeccapurple 2px 2px;
+}
+
+.contact-form h3,
+.contact-form figure {
+  display: inline-block;
+}
+
+.contact-form figure {
+  max-width: 50px;
+}
+
+.contact-form legend {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-shadow: rebeccapurple 2px 2px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.contact-form form button {
+  width: 90%;
+}
+
+.contact-form fieldset {
+  border: 1px solid var(--input-border);
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.contact-form fieldset:nth-child(1) {
+  width: 30%;
+}
+
+.contact-form fieldset:nth-child(2) {
+  width: 65%;
+}
+
+.contact-form form label {
+  display: block;
+}
+
+.contact-form form input,
+.contact-form form textarea,
+.contact-form form select {
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  text-align: left;
+  border: 1px solid var(--input-border);
+  border-radius: 10px;
+  background-color: #f4f4f4;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/** EXTRA CONTACT INFO */
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px black solid;
+}
+
+.contact-info img {
+  width: 60%;
+}
+
+.contact-info article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 48%;
+  margin-left: 1rem;
+}
+
+.contact-info article h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.contact-info article figure {
+  max-width: 200px;
+}
+
+/** LEAFLET MAP */
+
+.contact-location {
+  margin-top: 4rem;
+}
+
+/**************************************************DETAIL PAGINA*/
+
+.details-dj {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  gap: 5rem;
+}
+
+.details-form form {
+  margin-top: 5rem;
+  width: 100%;
+  border: 2px solid black;
+}
+
+.details-form textarea {
+  padding: 20px;
+  text-align: left;
+  color: var(--primary-color);
+}
+
+.details-form input[type="submit"] {
+  margin-top: 2rem;
+  border: #000000 2px solid;
+}
+
+.details-dj ol {
+  margin-top: 7rem;
+}
+
+.details-dj ol li {
+  list-style: decimal;
+  margin: 1rem;
+  letter-spacing: 0.1rem;
+}
+
+#detail-titel {
+  margin-top: 2rem;
+  text-shadow: rgb(165, 120, 209) 2px 2px;
+  padding-bottom: 3rem;
+  border-bottom: var(--primary-color) 2px solid;
+}
+
+/**************************************************FOOTER*/
+
+footer {
+  grid-area: footer;
+  background-color: var(--bg-color);
+  color: white;
+  text-align: center;
+  padding: 3rem;
+  margin-bottom: 0;
+}
+
+/****************************************************************MEDIA QUERIES*/
+
+/*****************************SMALL devices*/
+
+@media (max-width: 576px) {
+  body {
+    display: grid;
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "footer";
+    max-width: 100%;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .four-elements {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .popular-classes .products {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .personal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product {
+    width: 80%;
+  }
+
+  .productInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .listProduct {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .user {
+    width: 100%; /* On small devices, make each user take the full width */
+  }
+}
+
+/*****************************LARGE DEVICES*/
+
+@media (max-width: 960px) {
+  body {
+    display: grid;
+    grid-template-areas:
+      "header"
+      "nav"
+      "main"
+      "footer";
+    max-width: 100%;
+  }
+
+  .four-elements {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .four-elements > img {
+    margin-bottom: 1rem;
+  }
+
+  .popular-classes .products {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .popular-classes .products .product {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .personal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .product {
+    width: 80%;
+  }
+
+  .productInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .productImg {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .productList {
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Contact */
+
+  .contact {
+    width: auto;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-info article {
+    margin-top: 1rem;
+  }
+
+  .contact-form form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-form form fieldset:nth-child(1),
+  .contact-form form fieldset:nth-child(2) {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .listProduct {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .user {
+    width: 48%; /* On small devices, make each user take the full width */
+  }
+}

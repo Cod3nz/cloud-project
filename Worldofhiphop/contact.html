@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <link rel="stylesheet" href="css/reset.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""/>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""></script>
+    <link rel="stylesheet" href="css/map.css" />
+    <script src="js/map.js" defer></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <h2>World of Hip-hop</h2>
+      </a>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="menu">Home</a></li>
+        <li>
+          <a href="dans.html" class="menu">Dans &dtrif;
+            <ul class="dropdown">
+              <li>
+                <a href="breakdance.html">Breakdance</a>
+              </li>
+              <li>
+                <a href="popping.html">Popping</a>
+              </li>
+              <li>
+                <a href="house.html">House</a>
+              </li>
+              <li>
+                <a href="locking.html">Locking</a>
+              </li>
+              <li>
+                <a href="krump.html">Krump</a>
+              </li>
+              <li>
+                <a href="flexing.html">Flexing</a>
+              </li>
+              <li>
+                <a href="stepping.html">Stepping</a>
+              </li>
+              <li>
+                <a href="cwalk.html">C-Walking</a>
+              </li>
+            </ul>
+          </a>
+        </li>
+        <li><a href="overig.html" class="menu">Anders &dtrif;
+          <ul class="dropdown">
+            <li>
+              <a href="graffiti.html">Graffiti</a>
+            </li>
+            <li>
+              <a href="dj.html">DJ'ing</a>
+            </li>
+            <li>
+              <a href="rapping.html">MC'ing/Rapping</a>
+            </li>
+            <li>
+              <a href="awareness.html">Hip-hop Awareness</a>
+            </li>
+          </ul>
+        </a>
+      </li>
+           </a></li>
+        <li><a href="newshop.html" class="menu">Shop</a></li>
+        <li><a href="klanten.html" class="menu">Klanten</a></li>
+        <li><a href="contact.html" class="menu">Contact</a></li>
+        <li class="searchbar">
+          <form action="https://www.example.com" method="GET">
+          <input type="search" name="searchTerm" id="searchInput" placeholder="Zoek...">
+          <i class="fa-solid fa-magnifying-glass"></i>
+      </form>
+    </li>
+      </ul>
+    </nav>
+    <main class="contact">
+      <h2>Contacteer ons</h2>
+      <section class="contact-form">
+        <figure>
+          <img src="assets/Icons/edit.png" alt="formulier" />
+        </figure> <br>
+        <h3>vul het formulier in</h3>
+        <form action="#" method="post" class="contactform">
+          <fieldset>
+            <legend>gegevens</legend>
+            <label for="text">voor- en achternaam<span>*</span></label>
+            <input
+              type="text"
+              name="name"
+              placeholder="voor- en achternaam"
+              required
+            />
+            <label for="email">e-mail<span>*</span></label>
+            <input type="email" name="email" placeholder="e-mail" required />
+          </fieldset>
+          <fieldset>
+            <legend>vraag</legend>
+            <label for="contactperson">vraag is gericht aan<span>*</span></label>
+            <select name="contactperson" id="contactperson" required>
+              <option value="">-- maak hier een keuze --</option>
+              <option value="Administratie">Administratie</option>
+              <option value="Directie">Directie</option>
+              <option value="Website developer">Website developer</option>
+            </select>
+            <label for="message">bericht<span>*</span></label>
+            <textarea
+              name="message"
+              id="message"
+              placeholder="bericht"
+              rows="6"
+              required
+            ></textarea>
+          </fieldset>
+          <button type="submit" value="verzenden" class="button">
+            verzenden
+          </button>
+        </form>
+      </section>
+      <section class="contact-info">
+        <article>
+          <h3>via telefoon</h3>
+          <figure>
+            <img src="assets/Icons/phone-call.png" alt="bellen" />
+          </figure>
+          <p>
+            Wij zijn op alle werkdagen bereikbaar van <span>12:00u</span> t.e.m.
+            <span>20:00u.</span> op het nummer: 0499887766.
+          </p>
+        </article>
+
+        <article>
+          <h3>via mail</h3>
+          <figure>
+            <img src="assets/Icons/envelope.png" alt="mailen" />
+          </figure>
+          <p>
+            je kan ons ten alle tijden bereiken op het email adress:
+            Worldofhiphop@hiphop.com
+          </p>
+        </article>
+      </section>
+      <section class="contact-location">
+        <h3>Waar vind je ons?</h3>
+        <div id="map"></div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2023 World of Hiphop</p>
+    </footer>
+  </body>
+</html>
