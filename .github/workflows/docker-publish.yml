@@ -10,8 +10,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Build Docker image
-      run: docker build -t dockerhub-account-naam/uw-image-naam .
+      run: docker build -t cod3nz/project-cloud-denzel .
     - name: Login to Docker Hub
       run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
     - name: Push Docker image
-      run: docker push dockerhub-account-naam/uw-image-naam
+      run: docker push cod3nz/project-cloud-denzel:latest
